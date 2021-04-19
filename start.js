@@ -1,19 +1,60 @@
+// ```
+// $ node start.js 
+// The average score for round 1 is 1.78
+// The average score for round 2 is 1.56
+// The average score for round 3 is 1.56
+// The average score for round 4 is 1.33
+// The average score for round 5 is 1.39
+// The average score for round 6 is 1.61
+// The average score for round 7 is 1.06
+// The average score for round 8 is 0.83
+// The average of averages is 1.39
+// ```
+
 /**
  * 1. Declare two functions: calculateGolfAverages and calculateTotalAverages
  */
 
+// *
+// * 2. Implement calculateGolfAverages
+// * 
+// * This function should print out the average score of each round
+// * This function should receive the "golfScores" array as a parameter
+// * This function should console log the average score of each round in the array
+// * Please show only two decimals of accuracy on the averages:
+// * 
+// * An example of the expected outpulength
 
-/**
- * 2. Implement calculateGolfAverages
- * 
- * This function should print out the average score of each round
- * This function should receive the "golfScores" array as a parameter
- * This function should console log the average score of each round in the array
- * Please show only two decimals of accuracy on the averages:
- * 
- * An example of the expected output
- * "The average score for round 4 is 1.33"
-*/
+
+
+function calculateRoundAverages(golfScores) {
+   for (i = 0; i < golfScores.length; i++) {
+   let golfScore = golfScores[i];
+   let roundSum = 0;
+      for (j = 0; j < golfScore.length; j++) {
+        roundSum = roundSum + golfScore[j];
+       }
+   console.log(`The average score for round  ${i + 1} is ${(roundSum / golfScore.length).toFixed(2)}`); 
+  }   
+};
+
+function calculateTotalAverages(golfScores) {
+  let total = 0;
+  var totalLength = 0; 
+  for (i = 0; i < golfScores.length; i++){  
+  let sumScores = 0;
+    for (j = 0; j <  golfScores[i].length; j++) {
+      sumScores += golfScores[i][j];
+      totalLength = totalLength+1;  
+    }
+   total = total + sumScores;   
+  }
+ console.log(`The average of averages is ${(total / totalLength).toFixed(2)}`);
+};
+
+
+
+
 
 
 /**
