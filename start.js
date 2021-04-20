@@ -34,22 +34,27 @@ function calculateRoundAverages(golfScores) {
       for (j = 0; j < golfScore.length; j++) {
         roundSum = roundSum + golfScore[j];
        }
-   console.log(`The average score for round  ${i + 1} is ${(roundSum / golfScore.length).toFixed(2)}`); 
+       const average = roundSum / golfScore.length;
+   console.log(`The average score for round  ${i + 1} is ${average.toFixed(2)}`); 
   }   
 };
 
 function calculateTotalAverages(golfScores) {
-  let total = 0;
-  var totalLength = 0; 
-  for (i = 0; i < golfScores.length; i++){  
-  let sumScores = 0;
-    for (j = 0; j <  golfScores[i].length; j++) {
-      sumScores += golfScores[i][j];
-      totalLength = totalLength+1;  
+  let sumRoundAverages = 0;
+  for (i = 0; i < golfScores.length; i++) {
+    let golfScore = golfScores[i];
+    let roundSum = 0;
+
+       for (j = 0; j < golfScore.length; j++) {
+         roundSum = roundSum + golfScore[j];
+        }
+
+        const average = roundSum / golfScore.length;
+        sumRoundAverages = sumRoundAverages + average;
     }
-   total = total + sumScores;   
-  }
- console.log(`The average of averages is ${(total / totalLength).toFixed(2)}`);
+
+    const totalAverage = sumRoundAverages / golfScores.length;
+ console.log(`The average of averages is ${(totalAverage).toFixed(2)}`);
 };
 
 
